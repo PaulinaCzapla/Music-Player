@@ -24,5 +24,45 @@ namespace Music_Player
         {
             InitializeComponent();
         }
+
+        private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonPlayPause_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonPreviousSong_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSkip_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonShuffle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonRepeat_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonMinimalize_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
