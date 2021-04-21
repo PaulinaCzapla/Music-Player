@@ -76,15 +76,19 @@
             </StackPanel>
             
             
-            <Grid VerticalAlignment="Bottom" Margin="10">
+            <Grid VerticalAlignment="Bottom" Margin="10" Height="100">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="110"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
                 <Button HorizontalAlignment="Right" Height="48" Width="48" Margin="10" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
                     BorderBrush="{x:Null}" >
@@ -115,10 +119,12 @@
                     </materialDesign:PackIcon>
                 </Button>
 
-
-                <Button HorizontalAlignment="Center" Height="70" Width="70" Margin="10" Grid.Row="0" Grid.Column="2" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
-                    BorderBrush="{x:Null}" >
-                    <materialDesign:PackIcon Kind="Pause" Height="70" Width="70">
+                <Button HorizontalAlignment="Center" Margin="10" Height="70" Width="70" Grid.Row="0" Grid.Column="2" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="#212121"
+                    BorderBrush="Transparent" >
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="30" Color="#f7b538" Direction="-0" RenderingBias="Quality" ShadowDepth="0.5"/>
+                    </Button.Effect>
+                    <materialDesign:PackIcon Kind="Pause" Height="70" Width="70" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <GradientStop Color="#f7b538"/>
@@ -129,6 +135,7 @@
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
                 </Button>
+
 
                 <Button HorizontalAlignment="Center" Height="30" Width="30" Margin="10" Grid.Row="0" Grid.Column="4" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
                     BorderBrush="{x:Null}" >
