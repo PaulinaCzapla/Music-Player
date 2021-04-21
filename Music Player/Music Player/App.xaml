@@ -1,0 +1,19 @@
+﻿<Application x:Class="Music_Player.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Music_Player"
+             StartupUri="MainWindow.xaml">
+    
+    <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="#eeeeee" />
+            <Setter Property="Background" Value="#323232"/>
+            <Setter Property="FontSize" Value="22" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#eeeeee" />
+            <Setter Property="FontSize" Value="22" />
+        </Style>
+    </Application.Resources>
+
+</Application>
