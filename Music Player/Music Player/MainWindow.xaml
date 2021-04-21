@@ -13,8 +13,16 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         Title="MainWindow" Height="650" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Foreground="#969696"
         WindowStyle="None"
-      ShowInTaskbar="True">
+        ShowInTaskbar="True">
 
+    <!--<Window.Resources>
+        <DataTemplate DataType="{x:Type local:MusicPlayerViewModel}">
+            <local:MusicPlayerView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:LibraryViewModel}">
+            <local:LibraryView />
+        </DataTemplate>
+    </Window.Resources-->
 
     <Grid Background="#212121">
 
@@ -109,15 +117,15 @@
 
                             <Ellipse Width="260" Height="260"  StrokeThickness="3">
                                 <Ellipse.Fill>
-                                    <ImageBrush x:Name="imgDynamic" ImageSource="C:\Users\pauli\Downloads\Glass Animals - Zaba (2014)\cover.jpg"/>
+                                    <ImageBrush x:Name="imgDynamic"/>
                                 </Ellipse.Fill>
                             </Ellipse>
                         </Grid>
 
                         <Grid VerticalAlignment="Bottom" Margin="0,15,0,20">
                             <StackPanel>
-                                <TextBlock x:Name="TextBlockAuthor" Text="Glass Animals" HorizontalAlignment="Center"  FontSize="17"></TextBlock>
-                                <TextBlock x:Name="TextBlockTitle" Text="Black Mambo" HorizontalAlignment="Center" FontSize="25" Foreground="#eeeeee"></TextBlock>
+                                <TextBlock x:Name="TextBlockAuthor" Text="author" HorizontalAlignment="Center"  FontSize="17"></TextBlock>
+                                <TextBlock x:Name="TextBlockTitle" Text="title" HorizontalAlignment="Center" FontSize="25" Foreground="#eeeeee"></TextBlock>
                             </StackPanel>
                         </Grid>
                     </StackPanel>
@@ -214,8 +222,6 @@
 
 
                 </Grid>
-
-
 
                 <Grid VerticalAlignment="Top" Margin="10" Height="40">
                     <ProgressBar Style="{StaticResource MaterialDesignLinearProgressBar}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="450" Height="5" >

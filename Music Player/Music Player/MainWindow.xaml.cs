@@ -20,6 +20,8 @@ namespace Music_Player
     /// </summary>
     public partial class MainWindow : Window
     {
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -57,12 +59,12 @@ namespace Music_Player
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void ButtonMinimalize_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
     }
 }
