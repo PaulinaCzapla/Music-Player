@@ -1,4 +1,4 @@
-﻿<Window x:Class="Music_Player.MainWindow"
+﻿<Window x:Class="Music_Player.IMusicPlayerView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -17,12 +17,29 @@
 
     <!--<Window.Resources>
         <DataTemplate DataType="{x:Type local:MusicPlayerViewModel}">
-            <local:MusicPlayerView />
+            <local:MainWindow />
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:LibraryViewModel}">
-            <local:LibraryView />
+            <local:MusicLibrary />
         </DataTemplate>
-    </Window.Resources-->
+    </Window.Resources>
+
+    <DockPanel>
+        <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="0,0,1,0">
+            <ItemsControl ItemsSource="{Binding PageViewModels}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Name}"
+                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                CommandParameter="{Binding }"
+                                Margin="2,5"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Border>
+
+        <ContentControl Content="{Binding CurrentPageViewModel}" />
+    </DockPanel>-->
 
     <Grid Background="#212121">
 
@@ -239,4 +256,6 @@
 
 
     </Grid>
+
+
 </Window>

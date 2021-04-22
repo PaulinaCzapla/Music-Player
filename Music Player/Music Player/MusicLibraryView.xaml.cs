@@ -16,11 +16,21 @@ namespace Music_Player
     /// <summary>
     /// Interaction logic for MusicLibrary.xaml
     /// </summary>
-    public partial class MusicLibrary : Page
+    public partial class IMusicLibraryView : Page
     {
-        public MusicLibrary()
+        public IMusicLibraryView()
         {
-            InitializeComponent();
+            //InitializeComponent();
+        }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonMinimalize_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -18,18 +18,23 @@ namespace Music_Player
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class IMusicPlayerView : Window
     {
+     //   private ICommand _changePageCommand;
 
+        //private IPageViewModel _currentPageViewModel;
+      //  private List<IPageViewModel> _pageViewModels;
 
-        public MainWindow()
+        public IMusicPlayerView()
         {
             InitializeComponent();
+       
+            
         }
 
         private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void ButtonPlayPause_Click(object sender, RoutedEventArgs e)
