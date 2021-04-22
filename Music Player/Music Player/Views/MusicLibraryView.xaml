@@ -1,4 +1,4 @@
-﻿<Page x:Class="Music_Player.Views.MusicLibraryView"
+﻿<UserControl x:Class="Music_Player.Views.MusicLibraryView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:Music_Player.Views"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="450"
-      Title="MusicLibraryView"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -46,4 +45,4 @@
         </StackPanel>
 
     </Grid>
-</Page>
+</UserControl>

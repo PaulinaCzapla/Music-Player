@@ -16,7 +16,7 @@ namespace Music_Player.Views
     /// <summary>
     /// Interaction logic for MusicPlayerView.xaml
     /// </summary>
-    public partial class MusicPlayerView : Page
+    public partial class MusicPlayerView : UserControl
     {
         public MusicPlayerView()
         {

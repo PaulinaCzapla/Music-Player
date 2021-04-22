@@ -6,7 +6,7 @@
              xmlns:viewmodels="clr-namespace:Music_Player.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
 
-             StartupUri="MainView.xaml">
+             StartupUri="Views/MainView.xaml">
     
     <Application.Resources>
 

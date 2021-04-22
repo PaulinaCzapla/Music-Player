@@ -12,7 +12,11 @@ namespace Music_Player.ViewModels
         public BaseViewModel SelectedViewModel
         {
             get { return _SelectedViewModel; }
-            set { _SelectedViewModel = value; }
+            set 
+            { 
+                _SelectedViewModel = value;
+                OnPropertyChanged(nameof(SelectedViewModel));
+            }
         }
 
         public ICommand UpdateViewCommand { get; set; }
