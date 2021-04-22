@@ -16,33 +16,35 @@
 
 
     <Grid Background="#212121">
+       
+        <Grid Margin="10,0,10,0"  VerticalAlignment="Top" >
 
-        <StackPanel>
-
-
-            <TextBlock x:Name="PlaylistTextBlock" Margin="27,0,10,10" Text="Playlist" HorizontalAlignment="Left"  ></TextBlock>
-            <Line 
+            <StackPanel>
+                <TextBlock x:Name="PlaylistTextBlock" Margin="27,0,10,10" Text="Playlist" HorizontalAlignment="Left"  ></TextBlock>
+                <Line 
                 X1="25" Y1="1"  
                 X2="400" Y2="1"   
                 HorizontalAlignment="Center" StrokeThickness="1.4" Height="11" Width="452" >
-                <Line.Stroke>
-                    <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
-                        <RadialGradientBrush.GradientStops>
-                            <GradientStop Color="#f7b538" Offset="0.30"/>
-                            <GradientStop Color="#db7c26" Offset="0.35"/>
-                            <GradientStop Color="#d8572a" Offset="0.67"/>
-                            <GradientStop Color="#c32f27" Offset="0.99"/>
-                        </RadialGradientBrush.GradientStops>
-                    </RadialGradientBrush>
-                </Line.Stroke>
-            </Line>
+                    <Line.Stroke>
+                        <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                            <RadialGradientBrush.GradientStops>
+                                <GradientStop Color="#f7b538" Offset="0.30"/>
+                                <GradientStop Color="#db7c26" Offset="0.35"/>
+                                <GradientStop Color="#d8572a" Offset="0.67"/>
+                                <GradientStop Color="#c32f27" Offset="0.99"/>
+                            </RadialGradientBrush.GradientStops>
+                        </RadialGradientBrush>
+                    </Line.Stroke>
+                </Line>
 
 
-            <ListView VerticalAlignment="Center">
+                <ListView Height="370" Margin="10,10,10,0"  VerticalAlignment="Center">
 
-            </ListView>
+                </ListView>
 
-        </StackPanel>
 
+            </StackPanel>
+        </Grid>
+        
     </Grid>
 </UserControl>

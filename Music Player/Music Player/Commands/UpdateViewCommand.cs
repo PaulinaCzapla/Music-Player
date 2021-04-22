@@ -28,7 +28,8 @@ namespace Music_Player.Commands
 
         public void Execute(object parameter)
         {
-            if(parameter.ToString() == "MusicLibrary")
+            //Music_Player.Views.MainView.DataContextProperty.Name;
+            if (parameter.ToString() == "MusicLibrary")
             {
                 ViewModel.SelectedViewModel = new MusicLibraryViewModel();
             } else if (parameter.ToString() == "MusicPlayer")

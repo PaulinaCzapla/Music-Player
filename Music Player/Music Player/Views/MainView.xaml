@@ -15,31 +15,7 @@
         WindowStyle="None"
         ShowInTaskbar="True">
 
-    <!--<Window.Resources>
-        <DataTemplate DataType="{x:Type local:MusicPlayerViewModel}">
-            <local:MainWindow />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type local:LibraryViewModel}">
-            <local:MusicLibrary />
-        </DataTemplate>
-    </Window.Resources>
 
-    <DockPanel>
-        <Border DockPanel.Dock="Left" BorderBrush="Black" BorderThickness="0,0,1,0">
-            <ItemsControl ItemsSource="{Binding PageViewModels}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Content="{Binding Name}"
-                                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                CommandParameter="{Binding }"
-                                Margin="2,5"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Border>
-
-        <ContentControl Content="{Binding CurrentPageViewModel}" />
-    </DockPanel>-->
 
     <Grid Background="#212121">
 
@@ -68,6 +44,22 @@
                     </materialDesign:PackIcon.Foreground>
                 </materialDesign:PackIcon>
             </Button>
+
+
+                <Button x:Name="ButtonMusicPlayer" Click="ButtonMusicPlayer_Click" Command="{Binding UpdateViewCommand}" CommandParameter="MusicPlayer" HorizontalAlignment="Right" Height="40" Width="40" Margin="0,0,30,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
+                    BorderBrush="{x:Null}" >
+                    <materialDesign:PackIcon Kind="Music" Height="40" Width="40" >
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#f7b538"/>
+                                <GradientStop Color="#db7c26" Offset="0.50"/>
+                                <GradientStop Color="#d8572a" Offset="0.80"/>
+                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+
 
             <Button x:Name="ButtonClose" Click="ButtonClose_Click" HorizontalAlignment="Right" Height="40" Width="40" Margin="10"  Grid.Row="0" Grid.Column="2" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
                     BorderBrush="{x:Null}" >
@@ -100,7 +92,7 @@
 
         </Grid>
 
-        <Grid Margin="10,65,10,0" Height="600" VerticalAlignment="Top" >
+        <Grid Margin="0,65,0,0" Height="600" VerticalAlignment="Top" >
             <ContentControl Content="{Binding SelectedViewModel}"/>
         </Grid>
 

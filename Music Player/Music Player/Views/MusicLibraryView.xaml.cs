@@ -23,5 +23,10 @@ namespace Music_Player.Views
             InitializeComponent();
             DataContext = new Music_Player.ViewModels.MusicLibraryViewModel();
         }
+
+        private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

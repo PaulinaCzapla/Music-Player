@@ -36,6 +36,11 @@ namespace Music_Player.Views
         {
 
         }
+
+        private void ButtonMusicPlayer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
         //   private ICommand _changePageCommand;
 
         //private IPageViewModel _currentPageViewModel;
