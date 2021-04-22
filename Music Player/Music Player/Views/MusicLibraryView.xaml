@@ -14,11 +14,8 @@
         FontFamily="{materialDesign:MaterialDesignFont}"
         Height="650" Width="450"  Foreground="#eeeeee">
 
-
     <Grid Background="#212121">
-       
         <Grid Margin="10,0,10,0"  VerticalAlignment="Top" >
-
             <StackPanel>
                 <TextBlock x:Name="PlaylistTextBlock" Margin="27,0,10,10" Text="Playlist" HorizontalAlignment="Left"  ></TextBlock>
                 <Line 
@@ -36,15 +33,10 @@
                         </RadialGradientBrush>
                     </Line.Stroke>
                 </Line>
-
-
                 <ListView Height="370" Margin="10,10,10,0"  VerticalAlignment="Center">
 
                 </ListView>
-
-
             </StackPanel>
         </Grid>
-        
     </Grid>
 </UserControl>

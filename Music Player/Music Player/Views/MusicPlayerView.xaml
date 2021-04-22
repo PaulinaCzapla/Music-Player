@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:Music_Player.Views"
       mc:Ignorable="d" 
       d:DesignHeight="580" d:DesignWidth="450"
-
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -16,150 +15,130 @@
         Width="450"  Foreground="#969696"
         >
 
-
     <Grid Background="#212121">
-            <StackPanel  >
-
-                <Grid Margin="9,0,9,0" Background="#1c1c1c">
-
-                    <StackPanel>
-                        <Grid Margin="0,30,0,0" >
-                            <Ellipse Width="275" Height="275"  StrokeThickness="2">
-                                <Ellipse.Stroke>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#1c1c1c" Offset="0.78"/>
-                                        <GradientStop Color="#f7b538"/>
-                                        <GradientStop Color="#db7c26" Offset="0.30"/>
-                                        <GradientStop Color="#d8572a" Offset="0.6"/>
-                                        <GradientStop Color="#c32f27" Offset="0.64"/>
-                                    </LinearGradientBrush>
-                                </Ellipse.Stroke>
-                            </Ellipse>
-
-                            <Ellipse Width="270" Height="270" StrokeThickness="3">
-                                <Ellipse.Fill>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#1c1c1c" Offset="0.96"/>
-                                        <GradientStop Color="#61491b" />
-                                        <GradientStop Color="#4a2215" Offset="0.4" />
-                                    </LinearGradientBrush>
-                                </Ellipse.Fill>
-                            </Ellipse>
-
-                            <Ellipse Width="260" Height="260"  StrokeThickness="3">
-                                <Ellipse.Fill>
-                                    <ImageBrush x:Name="imgDynamic"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        </Grid>
-
-                        <Grid VerticalAlignment="Bottom" Margin="0,15,0,20">
-                            <StackPanel>
-                                <TextBlock x:Name="TextBlockAuthor" Text="author" HorizontalAlignment="Center"  FontSize="17"></TextBlock>
-                                <TextBlock x:Name="TextBlockTitle" Text="title" HorizontalAlignment="Center" FontSize="25" Foreground="#eeeeee"></TextBlock>
-                            </StackPanel>
-                        </Grid>
-                    </StackPanel>
-                </Grid>
-
-                <Grid VerticalAlignment="Top"  Height="100" Margin="0,10,0,25" >
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="110"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-
-                    <Button x:Name="ButtonPreviousSong" Click="ButtonPreviousSong_Click"  HorizontalAlignment="Right" Height="48" Width="48" Margin="10" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
-                    BorderBrush="{x:Null}" >
-                        <materialDesign:PackIcon Kind="SkipPrevious" Height="48" Width="48">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        <StackPanel  >
+            <Grid Margin="9,0,9,0" Background="#1c1c1c">
+                <StackPanel>
+                    <Grid Margin="0,30,0,0" >
+                        <Ellipse Width="275" Height="275"  StrokeThickness="2">
+                            <Ellipse.Stroke>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#1c1c1c" Offset="0.78"/>
                                     <GradientStop Color="#f7b538"/>
-                                    <GradientStop Color="#db7c26" Offset="0.50"/>
-                                    <GradientStop Color="#d8572a" Offset="0.80"/>
-                                    <GradientStop Color="#c32f27" Offset="0.90"/>
+                                    <GradientStop Color="#db7c26" Offset="0.30"/>
+                                    <GradientStop Color="#d8572a" Offset="0.6"/>
+                                    <GradientStop Color="#c32f27" Offset="0.64"/>
                                 </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                    </Button>
-
-
-                    <Button x:Name="ButtonSkip" Click="ButtonSkip_Click"  HorizontalAlignment="Left" Height="48" Width="48" Margin="10" Grid.Row="0" Grid.Column="3" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
+                            </Ellipse.Stroke>
+                        </Ellipse>
+                        <Ellipse Width="270" Height="270" StrokeThickness="3">
+                            <Ellipse.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#1c1c1c" Offset="0.96"/>
+                                    <GradientStop Color="#61491b" />
+                                    <GradientStop Color="#4a2215" Offset="0.4" />
+                                </LinearGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Ellipse Width="260" Height="260"  StrokeThickness="3">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="imgDynamic"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+                    <Grid VerticalAlignment="Bottom" Margin="0,15,0,20">
+                        <StackPanel>
+                            <TextBlock x:Name="TextBlockAuthor" Text="author" HorizontalAlignment="Center"  FontSize="17"></TextBlock>
+                            <TextBlock x:Name="TextBlockTitle" Text="title" HorizontalAlignment="Center" FontSize="25" Foreground="#eeeeee"></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Grid VerticalAlignment="Top"  Height="100" Margin="0,10,0,25" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="110"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="ButtonPreviousSong" Click="ButtonPreviousSong_Click"  HorizontalAlignment="Right" Height="48" Width="48" Margin="10" Grid.Row="0" Grid.Column="1" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
                     BorderBrush="{x:Null}" >
-                        <materialDesign:PackIcon Kind="SkipNext" Height="48" Width="48">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <GradientStop Color="#f7b538"/>
-                                    <GradientStop Color="#db7c26" Offset="0.50"/>
-                                    <GradientStop Color="#d8572a" Offset="0.80"/>
-                                    <GradientStop Color="#c32f27" Offset="0.90"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                    </Button>
-
-                    <Button x:Name="ButtonPlayPause" Click="ButtonPlayPause_Click" HorizontalAlignment="Center" Margin="10" Height="70" Width="70" Grid.Row="0" Grid.Column="2" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="#212121"
+                    <materialDesign:PackIcon Kind="SkipPrevious" Height="48" Width="48">
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#f7b538"/>
+                                <GradientStop Color="#db7c26" Offset="0.50"/>
+                                <GradientStop Color="#d8572a" Offset="0.80"/>
+                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button x:Name="ButtonSkip" Click="ButtonSkip_Click"  HorizontalAlignment="Left" Height="48" Width="48" Margin="10" Grid.Row="0" Grid.Column="3" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
+                    BorderBrush="{x:Null}" >
+                    <materialDesign:PackIcon Kind="SkipNext" Height="48" Width="48">
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#f7b538"/>
+                                <GradientStop Color="#db7c26" Offset="0.50"/>
+                                <GradientStop Color="#d8572a" Offset="0.80"/>
+                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button x:Name="ButtonPlayPause" Click="ButtonPlayPause_Click" HorizontalAlignment="Center" Margin="10" Height="70" Width="70" Grid.Row="0" Grid.Column="2" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="#212121"
                     BorderBrush="Transparent" >
-                        <Button.Effect>
-                            <DropShadowEffect BlurRadius="30" Color="#f7b538" Direction="-0" RenderingBias="Quality" ShadowDepth="0.5"/>
-                        </Button.Effect>
-                        <materialDesign:PackIcon Kind="Pause" Height="70" Width="70" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <GradientStop Color="#f7b538"/>
-                                    <GradientStop Color="#db7c26" Offset="0.50"/>
-                                    <GradientStop Color="#d8572a" Offset="0.80"/>
-                                    <GradientStop Color="#c32f27" Offset="0.90"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                    </Button>
-
-
-                    <Button x:Name="ButtonShuffle" Click="ButtonShuffle_Click"  HorizontalAlignment="Center" Height="30" Width="30" Margin="10" Grid.Row="0" Grid.Column="4" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="30" Color="#f7b538" Direction="-0" RenderingBias="Quality" ShadowDepth="0.5"/>
+                    </Button.Effect>
+                    <materialDesign:PackIcon Kind="Pause" Height="70" Width="70" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#f7b538"/>
+                                <GradientStop Color="#db7c26" Offset="0.50"/>
+                                <GradientStop Color="#d8572a" Offset="0.80"/>
+                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button x:Name="ButtonShuffle" Click="ButtonShuffle_Click"  HorizontalAlignment="Center" Height="30" Width="30" Margin="10" Grid.Row="0" Grid.Column="4" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
                     BorderBrush="{x:Null}" >
-                        <materialDesign:PackIcon Kind="ShuffleVariant" Height="30" Width="30">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <GradientStop Color="#f7b538"/>
-                                    <GradientStop Color="#db7c26" Offset="0.50"/>
-                                    <GradientStop Color="#d8572a" Offset="0.80"/>
-                                    <GradientStop Color="#c32f27" Offset="0.90"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                    </Button>
-
-                    <Button x:Name="ButtonRepeat" Click="ButtonRepeat_Click"  HorizontalAlignment="Center" Height="30" Width="30" Margin="10" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
+                    <materialDesign:PackIcon Kind="ShuffleVariant" Height="30" Width="30">
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#f7b538"/>
+                                <GradientStop Color="#db7c26" Offset="0.50"/>
+                                <GradientStop Color="#d8572a" Offset="0.80"/>
+                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+                <Button x:Name="ButtonRepeat" Click="ButtonRepeat_Click"  HorizontalAlignment="Center" Height="30" Width="30" Margin="10" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
                     BorderBrush="{x:Null}" >
-                        <materialDesign:PackIcon Kind="Repeat" Height="30" Width="30">
-                            <materialDesign:PackIcon.Foreground>
-                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                    <GradientStop Color="#f7b538"/>
-                                    <GradientStop Color="#db7c26" Offset="0.50"/>
-                                    <GradientStop Color="#d8572a" Offset="0.80"/>
-                                    <GradientStop Color="#c32f27" Offset="0.90"/>
-                                </LinearGradientBrush>
-                            </materialDesign:PackIcon.Foreground>
-                        </materialDesign:PackIcon>
-                    </Button>
+                    <materialDesign:PackIcon Kind="Repeat" Height="30" Width="30">
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                <GradientStop Color="#f7b538"/>
+                                <GradientStop Color="#db7c26" Offset="0.50"/>
+                                <GradientStop Color="#d8572a" Offset="0.80"/>
+                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
+                </Button>
+            </Grid>
+            <Grid VerticalAlignment="Top" Margin="10" Height="40">
+                <ProgressBar Style="{StaticResource MaterialDesignLinearProgressBar}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="450" Height="5" >
 
-
-                </Grid>
-
-                <Grid VerticalAlignment="Top" Margin="10" Height="40">
-                    <ProgressBar Style="{StaticResource MaterialDesignLinearProgressBar}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="450" Height="5" >
-
-                    </ProgressBar>
-
-                </Grid>
-            </StackPanel>
-        </Grid>
+                </ProgressBar>
+            </Grid>
+        </StackPanel>
+    </Grid>
 </UserControl>
