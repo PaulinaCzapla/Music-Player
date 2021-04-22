@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,28 +11,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Music_Player
+namespace Music_Player.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MusicPlayerView.xaml
     /// </summary>
-    public partial class IMusicPlayerView : Window
+    public partial class MusicPlayerView : Page
     {
-     //   private ICommand _changePageCommand;
-
-        //private IPageViewModel _currentPageViewModel;
-      //  private List<IPageViewModel> _pageViewModels;
-
-        public IMusicPlayerView()
+        public MusicPlayerView()
         {
             InitializeComponent();
-       
-            
+            DataContext = new Music_Player.ViewModels.MusicPlayerViewModel();
         }
-
         private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void ButtonPlayPause_Click(object sender, RoutedEventArgs e)
@@ -60,16 +51,6 @@ namespace Music_Player
         private void ButtonRepeat_Click(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void ButtonClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void ButtonMinimalize_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
         }
     }
 }

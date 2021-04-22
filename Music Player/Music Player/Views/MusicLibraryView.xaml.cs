@@ -11,26 +11,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Music_Player
+namespace Music_Player.Views
 {
     /// <summary>
-    /// Interaction logic for MusicLibrary.xaml
+    /// Interaction logic for MusicLibraryView.xaml
     /// </summary>
-    public partial class IMusicLibraryView : Page
+    public partial class MusicLibraryView : Page
     {
-        public IMusicLibraryView()
+        public MusicLibraryView()
         {
-            //InitializeComponent();
-        }
-
-        private void ButtonClose_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButtonMinimalize_Click(object sender, RoutedEventArgs e)
-        {
-
+            InitializeComponent();
+            DataContext = new Music_Player.ViewModels.MusicLibraryViewModel();
         }
     }
 }

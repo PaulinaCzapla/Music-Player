@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Music_Player.ViewModels
 {
-    class MusicPlayerViewModel
+    class MusicPlayerViewModel : BaseViewModel
     {
+
     }
 }

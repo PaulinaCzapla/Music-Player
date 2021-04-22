@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Music_Player.Commands;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 
 namespace Music_Player.ViewModels
 {
@@ -11,6 +13,15 @@ namespace Music_Player.ViewModels
         {
             get { return _SelectedViewModel; }
             set { _SelectedViewModel = value; }
+        }
+
+        public ICommand UpdateViewCommand { get; set; }
+
+        public MainViewModel()
+        {
+            SelectedViewModel = new MusicPlayerViewModel();
+            UpdateViewCommand = new UpdateViewCommand(this);
+
         }
     }
 
