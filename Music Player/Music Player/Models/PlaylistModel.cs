@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Music_Player.Models
 {
-    class Playlist
+    class PlaylistModel
     {
     }
 }
