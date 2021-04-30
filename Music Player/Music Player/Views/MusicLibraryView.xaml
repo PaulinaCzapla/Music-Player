@@ -18,6 +18,7 @@
         <Grid Margin="10,0,10,0"  VerticalAlignment="Top" >
             <StackPanel>
                 <TextBlock x:Name="PlaylistTextBlock" Margin="27,0,10,10" Text="Playlist" HorizontalAlignment="Left"  ></TextBlock>
+               
                 <Line 
                 X1="25" Y1="1"  
                 X2="400" Y2="1"   
@@ -33,6 +34,7 @@
                         </RadialGradientBrush>
                     </Line.Stroke>
                 </Line>
+                
                 <ListView Height="370" Margin="10,10,10,0"  VerticalAlignment="Center">
 
                 </ListView>
