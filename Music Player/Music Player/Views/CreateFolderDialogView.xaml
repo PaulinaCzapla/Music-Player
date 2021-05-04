@@ -1,0 +1,40 @@
+﻿<Window x:Class="Music_Player.Views.CreateFolderDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Music_Player.Views"
+        mc:Ignorable="d"
+        Title="CreateFolderDialogView" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Foreground="#969696"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="20"
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        Height="160" Width="400"
+        >
+
+
+    <Grid Margin="15"  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1">Add new folder</Label>
+        <TextBox Name="folderNameInput" Grid.Column="1" Grid.Row="1" MinWidth="250" Text="{Binding Path=Text}" Foreground="#969696"/> 
+
+        <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button  IsDefault="True" Name="buttonDialogOk" Click="buttonDialogOk_Click" MinWidth="60" Margin="0,0,10,0" Background="#969696">_OK</Button>
+            <Button IsCancel="True" MinWidth="60" Background="#969696">_Cancel</Button>
+        </WrapPanel>
+    </Grid>
+</Window>
