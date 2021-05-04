@@ -25,9 +25,13 @@ namespace Music_Player.Views
             InitializeComponent();
             DataContext = new Music_Player.ViewModels.MusicLibraryViewModel();
 
-
            // var t = new TreeViewItem();
 
+
+        }
+
+        private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
+        {
 
         }
 
@@ -44,10 +48,11 @@ namespace Music_Player.Views
             TreeViewItem item;
             if (inputDialog.ShowDialog() == true)
             {
+                Debug.WriteLine("added new folder");
+
                 item = new TreeViewItem();
 
                 item.Header = inputDialog.folderNameInput.Text;
-               
                 FolderView.Items.Add(item);
 
                 OpenFileDialog(item);
@@ -73,10 +78,6 @@ namespace Music_Player.Views
                 }
 
             }
-        }
-        public void Initialize()
-        {
-            InitializeComponent();
         }
     }
 }

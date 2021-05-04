@@ -1,8 +1,5 @@
-﻿using Microsoft.Win32;
-using Music_Player.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,20 +17,10 @@ namespace Music_Player.Views
     /// </summary>
     public partial class MainView : Window
     {
-        private MediaPlayer mediaPlayer = new MediaPlayer();
-        private MainViewModel CurrentViewModel;
-        private MusicPlayerViewModel MusicPlayerView;
-        private MusicLibraryViewModel MusicLibraryView;
-
         public MainView()
         {
             InitializeComponent();
-            CurrentViewModel =  new MainViewModel();
-            DataContext = CurrentViewModel;
-            MusicPlayerView = new MusicPlayerViewModel();
-            MusicLibraryView = new MusicLibraryViewModel();
-          //  MusicPlayer = currentModel.SelectedViewModel;
-
+            DataContext = new Music_Player.ViewModels.MainViewModel();
         }
         private void ButtonMinimalize_Click(object sender, RoutedEventArgs e)
         {
@@ -42,20 +29,17 @@ namespace Music_Player.Views
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
-            SystemSounds.Question.Play();
             this.Close();
         }
 
         private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
         {
-            // MusicLibraryView.Initialize();
-            CurrentViewModel.SelectedViewModel = MusicLibraryView;
-            
+
         }
 
         private void ButtonMusicPlayer_Click(object sender, RoutedEventArgs e)
         {
-            CurrentViewModel.SelectedViewModel = MusicPlayerView;
+
         }
         //   private ICommand _changePageCommand;
 

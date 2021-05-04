@@ -48,7 +48,7 @@
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
 
-                                            <!--<materialDesign:PackIcon Name="folderIcon" Kind="Folder" Height="20" Width="20"  Margin="3" Foreground="#eeeeee"/>-->
+                                            <materialDesign:PackIcon Kind="Folder" Height="20" Width="20"  Margin="3" Foreground="#eeeeee"/>
                                             <TextBlock VerticalAlignment="Center" Text="{Binding}" Foreground="#eeeeee"/>
                                         </StackPanel>
                                     </DataTemplate>
