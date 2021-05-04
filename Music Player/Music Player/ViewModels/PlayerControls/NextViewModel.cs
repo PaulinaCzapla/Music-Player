@@ -6,5 +6,6 @@ namespace Music_Player.ViewModels.PlayerControls
 {
     class NextViewModel : IPlayerControlViewModel
     {
+        public void Execute() { }
     }
 }
