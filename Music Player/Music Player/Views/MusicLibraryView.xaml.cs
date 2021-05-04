@@ -45,37 +45,39 @@ namespace Music_Player.Views
 
             CreateFolderDialogView inputDialog = new CreateFolderDialogView();
 
-
+            TreeViewItem item;
             if (inputDialog.ShowDialog() == true)
             {
                 Debug.WriteLine("added new folder");
 
-                var item = new TreeViewItem();
-                
+                item = new TreeViewItem();
+
                 item.Header = inputDialog.folderNameInput.Text;
                 FolderView.Items.Add(item);
+
+                OpenFileDialog(item);
             }
+        }
 
-            //string[] paths, files;
+        private void OpenFileDialog(TreeViewItem item)
+        {
+            string[] paths, files;
 
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.Multiselect = true;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
 
-            //if (openFileDialog.ShowDialog() == true)
-            //{
-            //    files = openFileDialog.SafeFileNames;
-            //    paths = openFileDialog.FileNames;
+            if (openFileDialog.ShowDialog() == true)
+            {
+                files = openFileDialog.SafeFileNames;
+                paths = openFileDialog.FileNames;
 
-            //    for (int i = 0; i < files.Length; i++)
-            //    {
-            //        var item = new TreeViewItem();
+                for (int i = 0; i < files.Length; i++)
+                {
+                    Debug.WriteLine("{1}", paths[i]);
+                    item.Items.Add(files[i]);
+                }
 
-            //        item.Header = files[i];
-
-            //        FolderView.Items.Add(item);
-            //   }
-
-            // }
+            }
         }
     }
 }

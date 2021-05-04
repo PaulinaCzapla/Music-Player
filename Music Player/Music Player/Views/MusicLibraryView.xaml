@@ -19,7 +19,7 @@
     <Grid Background="#212121">
         <Grid Margin="10,0,10,0"  VerticalAlignment="Top" >
             <StackPanel>
-                <TextBlock x:Name="PlaylistTextBlock" Margin="27,0,10,10" Text="Playlist" HorizontalAlignment="Left"  ></TextBlock>
+                <TextBlock x:Name="PlaylistTextBlock" Margin="27,0,10,10" Text="Playlists" HorizontalAlignment="Left"  ></TextBlock>
 
                 <Line 
                 X1="25" Y1="1"  
