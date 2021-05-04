@@ -19,12 +19,10 @@ namespace Music_Player.ViewModels
             }
         }
 
-        public ICommand UpdateViewCommand { get; set; }
-
         public MainViewModel()
         {
             SelectedViewModel = new MusicPlayerViewModel();
-            UpdateViewCommand = new UpdateViewCommand(this);
+          //  UpdateViewCommand = new UpdateViewCommand(this);
 
         }
     }

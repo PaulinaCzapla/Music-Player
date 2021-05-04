@@ -27,7 +27,7 @@ namespace Music_Player.Views
 
         private void ButtonPlayPause_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void ButtonPreviousSong_Click(object sender, RoutedEventArgs e)
@@ -48,6 +48,10 @@ namespace Music_Player.Views
         private void ButtonRepeat_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        public void Initialize()
+        {
+            InitializeComponent();
         }
 
     }
