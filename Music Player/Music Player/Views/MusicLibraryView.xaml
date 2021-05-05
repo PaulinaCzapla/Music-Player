@@ -11,7 +11,6 @@
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="20"
-             Loaded="UserControl_Loaded"
         FontFamily="{materialDesign:MaterialDesignFont}"
         Height="650" Width="450"  Foreground="#eeeeee">
 
@@ -19,11 +18,11 @@
     <Grid Background="#212121">
         <Grid Margin="10,0,10,0"  VerticalAlignment="Top" >
             <StackPanel>
-                <TextBlock x:Name="PlaylistTextBlock" Margin="27,0,10,10" Text="Playlists" HorizontalAlignment="Left"  ></TextBlock>
+                <TextBlock x:Name="PlaylistTextBlock" Margin="27,0,10,10" Text="Playlists" HorizontalAlignment="Center"  ></TextBlock>
 
                 <Line 
                 X1="25" Y1="1"  
-                X2="400" Y2="1"   
+                X2="425" Y2="1"   
                 HorizontalAlignment="Center" StrokeThickness="1.4" Height="11" Width="452" >
                     <Line.Stroke>
                         <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
@@ -37,9 +36,7 @@
                     </Line.Stroke>
                 </Line>
 
-
-
-                <TreeView x:Name="FolderView" Foreground="#eeeeee" Height="430">
+                <TreeView x:Name="FolderView" Foreground="#eeeeee" Height="430" SelectedItemChanged="FolderView_SelectedItemChanged">
                     <TreeView.Resources>
 
                         <Style TargetType="{x:Type TreeViewItem}">
@@ -47,8 +44,6 @@
                                 <Setter.Value>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-
-                                            <materialDesign:PackIcon Kind="Folder" Height="20" Width="20"  Margin="3" Foreground="#eeeeee"/>
                                             <TextBlock VerticalAlignment="Center" Text="{Binding}" Foreground="#eeeeee"/>
                                         </StackPanel>
                                     </DataTemplate>
