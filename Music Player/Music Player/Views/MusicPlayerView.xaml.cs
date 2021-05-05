@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Music_Player.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,10 +19,12 @@ namespace Music_Player.Views
     /// </summary>
     public partial class MusicPlayerView : UserControl
     {
+
+        private static MusicPlayerViewModel PlayerVM = new MusicPlayerViewModel();
         public MusicPlayerView()
         {
             InitializeComponent();
-            DataContext = new Music_Player.ViewModels.MusicPlayerViewModel();
+            DataContext = PlayerVM;
         }
 
 
