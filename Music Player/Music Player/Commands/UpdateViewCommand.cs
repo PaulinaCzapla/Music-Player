@@ -36,8 +36,6 @@ namespace Music_Player.Commands
             if (parameter.ToString() == "MusicLibrary")
             {
                 MainViewModel.SelectedViewModel =  MusicLibraryViewModel;
-                if (Object.ReferenceEquals(MainViewModel.SelectedViewModel, MusicLibraryViewModel))
-                    Debug.WriteLine("same obj");
 
             } else if (parameter.ToString() == "MusicPlayer")
             {

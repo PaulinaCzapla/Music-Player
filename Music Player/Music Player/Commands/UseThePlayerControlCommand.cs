@@ -13,9 +13,8 @@ namespace Music_Player.Commands
 
         private IPlayerControlViewModel PlayerControl;
 
-        public UseThePlayerControlCommand(IPlayerControlViewModel playerControl)
+        public UseThePlayerControlCommand()
         {
-            PlayerControl = playerControl;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -27,11 +26,12 @@ namespace Music_Player.Commands
 
         public void Execute(object parameter)
         {
-            switch (parameter.ToString())
+            var param = (Tuple<string, string, string>)parameter;
+            switch (param.Item1)
             {
                 case "Play":
 
-                    PlayerControl = new PlayViewModel();
+                    PlayerControl = new PlayViewModel( param.Item3);
 
                     break;
 

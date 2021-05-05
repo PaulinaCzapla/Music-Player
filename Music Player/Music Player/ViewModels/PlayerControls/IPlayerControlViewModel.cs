@@ -6,6 +6,6 @@ namespace Music_Player.ViewModels.PlayerControls
 {
     interface IPlayerControlViewModel
     {
-        public void Execute();
+        public void Execute(object param);
     }
 }

@@ -68,7 +68,6 @@ namespace Music_Player.ViewModels
                     {
                         if (song.Value != null)
                         {
-
                             item.Items.Add(song.Key);
                         }
                     }
