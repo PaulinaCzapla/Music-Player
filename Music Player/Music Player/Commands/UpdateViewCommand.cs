@@ -1,6 +1,7 @@
 ﻿using Music_Player.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows.Input;
 
@@ -12,11 +13,15 @@ namespace Music_Player.Commands
     {
 
 
-        private MainViewModel ViewModel;
+        private MainViewModel MainViewModel;
+        private MusicLibraryViewModel MusicLibraryViewModel;
+        private MusicPlayerViewModel MusicPlayerViewModel;
 
-        public UpdateViewCommand(MainViewModel viewModel)
+        public UpdateViewCommand(MainViewModel viewModel, MusicPlayerViewModel musicPlayerViewModel, MusicLibraryViewModel musicLibraryViewModel)
         {
-            ViewModel = viewModel;
+            MainViewModel = viewModel;
+            MusicLibraryViewModel = musicLibraryViewModel;
+            MusicPlayerViewModel = musicPlayerViewModel;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -28,13 +33,15 @@ namespace Music_Player.Commands
 
         public void Execute(object parameter)
         {
-            //Music_Player.Views.MainView.DataContextProperty.Name;
             if (parameter.ToString() == "MusicLibrary")
             {
-                ViewModel.SelectedViewModel = new MusicLibraryViewModel();
+                MainViewModel.SelectedViewModel =  MusicLibraryViewModel;
+                if (Object.ReferenceEquals(MainViewModel.SelectedViewModel, MusicLibraryViewModel))
+                    Debug.WriteLine("same obj");
+
             } else if (parameter.ToString() == "MusicPlayer")
             {
-                ViewModel.SelectedViewModel = new MusicPlayerViewModel();
+                MainViewModel.SelectedViewModel =  MusicPlayerViewModel;
             }
         }
     }
