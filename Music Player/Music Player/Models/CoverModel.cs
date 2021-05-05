@@ -6,5 +6,10 @@ namespace Music_Player.Models
 {
     class CoverModel
     {
+        public CoverModel(string path)
+        {
+            Path = path;
+        }
+        private string Path { get; }
     }
 }
