@@ -39,13 +39,13 @@ namespace Music_Player.ViewModels
 
         public void CreatePlaylist(string[] songsPaths, string playlistName, string coverPath)
         {
-            List<SongModel> songs = new List<SongModel>();
+            Dictionary<string, SongModel> songs = new Dictionary<string, SongModel> ();
             foreach (string path in songsPaths)
             {
+                string[] pathElements = path.Split('\\');
                 SongModel song = new SongModel(path);
-                songs.Add(song);
+                songs.Add(pathElements[pathElements.Length - 1], song);
             }
-
             PlaylistModel newPlaylist = new PlaylistModel(playlistName, songs, coverPath);
             AddToPlaylists(newPlaylist);
         }
@@ -64,12 +64,12 @@ namespace Music_Player.ViewModels
                     item.Header = playlist.PlaylistName;
                     tree.Items.Add(item);
 
-                    foreach (SongModel song in playlist.Songs)
+                    foreach (var song in playlist.Songs)
                     {
-                        if (song.Path != null)
+                        if (song.Value != null)
                         {
-                            string[] pathElements = song.Path.Split('\\');
-                            item.Items.Add(pathElements[pathElements.Length - 1]);
+
+                            item.Items.Add(song.Key);
                         }
                     }
                 } 
