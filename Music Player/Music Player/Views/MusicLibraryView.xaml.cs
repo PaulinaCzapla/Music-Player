@@ -1,4 +1,6 @@
 ﻿using Microsoft.Win32;
+using Music_Player.Models;
+using Music_Player.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,14 +22,16 @@ namespace Music_Player.Views
     /// </summary>
     public partial class MusicLibraryView : UserControl
     {
+        private static MusicLibraryViewModel LibraryVM = new MusicLibraryViewModel();
         public MusicLibraryView()
         {
             InitializeComponent();
-            DataContext = new Music_Player.ViewModels.MusicLibraryViewModel();
+            Debug.WriteLine("libview");
+            
+            DataContext = LibraryVM;
 
-           // var t = new TreeViewItem();
-
-
+           
+             LibraryVM.DisplayPlaylist(FolderView);
         }
 
         private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
@@ -48,20 +52,23 @@ namespace Music_Player.Views
             TreeViewItem item;
             if (inputDialog.ShowDialog() == true)
             {
-                Debug.WriteLine("added new folder");
-
                 item = new TreeViewItem();
 
-                item.Header = inputDialog.folderNameInput.Text;
-                FolderView.Items.Add(item);
+             //   item.Header = inputDialog.folderNameInput.Text;
+              //  FolderView.Items.Add(item);
 
-                OpenFileDialog(item);
+                var data = OpenFileDialog(item);
+
+                LibraryVM.CreatePlaylist(data.Item1, inputDialog.folderNameInput.Text, data.Item2) ;
             }
+
+           LibraryVM.DisplayPlaylist(FolderView);
         }
 
-        private void OpenFileDialog(TreeViewItem item)
+        private (string[], string) OpenFileDialog(TreeViewItem item)
         {
-            string[] paths, files;
+            string[] paths = null, files = null;
+            string cover = null;
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
@@ -73,11 +80,21 @@ namespace Music_Player.Views
 
                 for (int i = 0; i < files.Length; i++)
                 {
-                    Debug.WriteLine("{1}", paths[i]);
-                    item.Items.Add(files[i]);
-                }
+                    string[] file = files[i].Split('.');
+                    if (file[1] == "png" || file[1] == "jpg" || file[1] == "jpeg")
+                    {
+                        cover = paths[i];
+                        paths[i] = null;
+                        files[i] = null;
 
+                        continue;
+                    }
+                      //  item.Items.Add(file[0]);
+                }
             }
+            return (paths, cover);
         }
+
+        
     }
 }

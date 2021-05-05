@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Music_Player.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,14 +19,18 @@ namespace Music_Player.Views
     /// </summary>
     public partial class MainView : Window
     {
+        private MainViewModel MainVM;  
+
         public MainView()
         {
             InitializeComponent();
-            DataContext = new Music_Player.ViewModels.MainViewModel();
+            MainVM = new MainViewModel();
+            DataContext = MainVM;
         }
         private void ButtonMinimalize_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
