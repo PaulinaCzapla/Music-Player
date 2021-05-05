@@ -27,19 +27,11 @@ namespace Music_Player.Views
         {
             InitializeComponent();
             Debug.WriteLine("libview");
-            
             DataContext = LibraryVM;
-
-           
-             LibraryVM.DisplayPlaylist(FolderView);
+            LibraryVM.DisplayPlaylist(FolderView);
         }
 
         private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
@@ -49,28 +41,24 @@ namespace Music_Player.Views
 
             CreateFolderDialogView inputDialog = new CreateFolderDialogView();
 
-            TreeViewItem item;
             if (inputDialog.ShowDialog() == true)
             {
-                item = new TreeViewItem();
+                var data = OpenFileDialog();
 
-             //   item.Header = inputDialog.folderNameInput.Text;
-              //  FolderView.Items.Add(item);
-
-                var data = OpenFileDialog(item);
-
-                LibraryVM.CreatePlaylist(data.Item1, inputDialog.folderNameInput.Text, data.Item2) ;
+                LibraryVM.CreatePlaylist(data.Item1, inputDialog.folderNameInput.Text, data.Item2);
             }
 
-           LibraryVM.DisplayPlaylist(FolderView);
+            LibraryVM.DisplayPlaylist(FolderView);
         }
 
-        private (string[], string) OpenFileDialog(TreeViewItem item)
+        private (string[], string) OpenFileDialog()
         {
             string[] paths = null, files = null;
             string cover = null;
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Files (*.mp3;*.PNG;*.JPG;*JPEG)|*.mp3;*.PNG;*.JPG;*.JPEG";
+
             openFileDialog.Multiselect = true;
 
             if (openFileDialog.ShowDialog() == true)
@@ -89,12 +77,14 @@ namespace Music_Player.Views
 
                         continue;
                     }
-                      //  item.Items.Add(file[0]);
                 }
             }
             return (paths, cover);
         }
 
-        
+        private void FolderView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            Debug.WriteLine("changed");
+        }
     }
 }
