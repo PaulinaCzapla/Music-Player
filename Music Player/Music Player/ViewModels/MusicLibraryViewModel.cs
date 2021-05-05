@@ -66,8 +66,11 @@ namespace Music_Player.ViewModels
 
                     foreach (SongModel song in playlist.Songs)
                     {
-                        string[] pathElements = song.Path.Split('\\');
-                        item.Items.Add(pathElements[pathElements.Length - 1]);
+                        if (song.Path != null)
+                        {
+                            string[] pathElements = song.Path.Split('\\');
+                            item.Items.Add(pathElements[pathElements.Length - 1]);
+                        }
                     }
                 } 
             }
