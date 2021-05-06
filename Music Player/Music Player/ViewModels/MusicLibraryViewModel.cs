@@ -1,30 +1,31 @@
-﻿using Music_Player.Models;
+﻿using Music_Player.Commands;
+using Music_Player.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Music_Player.ViewModels
 {
     class MusicLibraryViewModel : BaseViewModel
     {
 
-        private List<PlaylistModel> Playlists;
+        private Dictionary<string, PlaylistModel> Playlists;
 
 
 
-        private void AddToPlaylists(PlaylistModel playlist)
+        private void AddToPlaylists(string playlistName, PlaylistModel playlist)
         {
-            Playlists.Add(playlist);
+            Playlists.Add(playlistName, playlist);
         }
         public MusicLibraryViewModel()
         {
-            Debug.WriteLine("librart");
-
+            UseThePlayerControlCommand = new UseThePlayerControlCommand();
+            Playlists = new Dictionary<string, PlaylistModel>();
             //reading playlists from file
 
-            Playlists = new List<PlaylistModel>();
         }
 
         public void AddToPlaylist(string playlistName, string songPath)
@@ -39,15 +40,18 @@ namespace Music_Player.ViewModels
 
         public void CreatePlaylist(string[] songsPaths, string playlistName, string coverPath)
         {
-            Dictionary<string, SongModel> songs = new Dictionary<string, SongModel> ();
+            Dictionary<string, SongModel> songs = new Dictionary<string, SongModel>();
             foreach (string path in songsPaths)
             {
-                string[] pathElements = path.Split('\\');
-                SongModel song = new SongModel(path);
-                songs.Add(pathElements[pathElements.Length - 1], song);
+                if (!string.IsNullOrEmpty(path))
+                {
+                    string[] pathElements = path?.Split('\\');
+                    SongModel song = new SongModel(path);
+                    songs.Add(pathElements[pathElements.Length - 1], song);
+                }
             }
             PlaylistModel newPlaylist = new PlaylistModel(playlistName, songs, coverPath);
-            AddToPlaylists(newPlaylist);
+            AddToPlaylists(playlistName, newPlaylist);
         }
 
         public void DisplayPlaylist(TreeView tree)
@@ -57,24 +61,37 @@ namespace Music_Player.ViewModels
             if (Playlists.Count != 0)
             {
                 Debug.WriteLine(" display");
-                foreach (PlaylistModel playlist in Playlists)
+                foreach (var playlist in Playlists)
                 {
                     TreeViewItem item = new TreeViewItem();
 
-                    item.Header = playlist.PlaylistName;
+                    item.Header = playlist.Key;
                     tree.Items.Add(item);
 
-                    foreach (var song in playlist.Songs)
+                    foreach (var song in playlist.Value.Songs)
                     {
                         if (song.Value != null)
                         {
-                            item.Items.Add(song.Key);
+                            var subItem = new TreeViewItem();
+                            subItem.Header = song.Key;
+                            item.Items.Add(subItem);
                         }
                     }
-                } 
+                }
+            }
+        }
+
+        public void PlaySelectedSong(string playlistName, string title)
+        {
+            if (Playlists.ContainsKey(playlistName))
+            {
+                var playlist = Playlists.GetValueOrDefault(playlistName);
+               if( playlist.Songs.ContainsKey(title))
+                {
+                    PlaySong(title, playlist.Songs.GetValueOrDefault(title).Path);
+                }
             }
         }
     }
 }
 
-            

@@ -15,18 +15,14 @@ namespace Music_Player.ViewModels
         public static MediaPlayer Player = new MediaPlayer();
 
         private string CurrentSong;
-        public  ICommand UseThePlayerControlCommand{ get; set; }
+        
         public MusicPlayerViewModel()
         {
             Debug.WriteLine(" player ");
             UseThePlayerControlCommand = new UseThePlayerControlCommand();
         }
 
-        public void PlaySong(string name, string path)
-        {
-            Tuple<string, string, string> data = new Tuple<string, string, string>("play", name, path);
-            UseThePlayerControlCommand.Execute(data);
-        }
+
 
 
 

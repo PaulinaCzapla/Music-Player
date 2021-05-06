@@ -38,20 +38,5 @@ namespace Music_Player.Views
             this.Close();
         }
 
-        private void ButtonLibrary_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButtonMusicPlayer_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        //   private ICommand _changePageCommand;
-
-        //private IPageViewModel _currentPageViewModel;
-        //  private List<IPageViewModel> _pageViewModels;
-
-
     }
 }

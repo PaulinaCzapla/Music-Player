@@ -84,25 +84,34 @@ namespace Music_Player.Views
 
         private void FolderView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            Debug.WriteLine("changed");
+            var item = ((TreeView)sender).SelectedItem as TreeViewItem;
 
-            //  var item= (TreeViewItem)((TreeView)sender).SelectedItem;
-            var item = ((TreeView)sender).SelectedItem;
-            //string[] title = item.Header.ToString().Split('.');
-
-            //if (title[title.Length-1] == "mp3")
-            //{
-            //    MusicPlayerViewModel playerVM = new MusicPlayerViewModel();
-            //    playerVM.PlaySong(title[0], item.Header.ToString());
-            //}
-
-            string[] title = item.ToString().Split('.');
-
-            if (title[title.Length - 1] == "mp3")
+            if (item != null)
             {
-                MusicPlayerViewModel playerVM = new MusicPlayerViewModel();
-                playerVM.PlaySong(title[0], item.ToString());
+                ItemsControl parent = GetSelectedTreeViewItemParent(item);
+                TreeViewItem treeItem = parent as TreeViewItem;
+
+                if (treeItem != null)
+                {
+                    string playlistName = treeItem.Header.ToString();
+                    LibraryVM.PlaySelectedSong(playlistName, item.Header.ToString());
+                }
+                else
+                {
+                    //to implement - playing all songs from playlist (PlaylistModel method)
+                }
             }
+        }
+
+        private ItemsControl GetSelectedTreeViewItemParent(TreeViewItem item)
+        {
+            DependencyObject parent = VisualTreeHelper.GetParent(item);
+            while (!(parent is TreeViewItem || parent is TreeView))
+            {
+                parent = VisualTreeHelper.GetParent(parent);
+            }
+
+            return parent as ItemsControl;
         }
     }
 }
