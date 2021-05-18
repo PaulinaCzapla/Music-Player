@@ -11,8 +11,9 @@ namespace Music_Player.ViewModels
     class MainViewModel : BaseViewModel
     {
         
-        private MusicLibraryViewModel MusicLibraryViewModel;
-        private MusicPlayerViewModel MusicPlayerViewModel;
+        private MusicLibraryViewModel MusicLibraryViewModel { get; set; }
+        private PlayerControlsViewModel MusicPlayerViewModel { get; set; }
+
 
         private BaseViewModel   _SelectedViewModel;
         public BaseViewModel  SelectedViewModel
@@ -30,11 +31,10 @@ namespace Music_Player.ViewModels
         public MainViewModel()
         {
             MusicLibraryViewModel = new MusicLibraryViewModel();
-            MusicPlayerViewModel = new MusicPlayerViewModel();
+            MusicPlayerViewModel = new PlayerControlsViewModel();
 
             SelectedViewModel = MusicPlayerViewModel;
             UpdateViewCommand = new UpdateViewCommand(this,  MusicPlayerViewModel,  MusicLibraryViewModel);
         }
     }
-
 }

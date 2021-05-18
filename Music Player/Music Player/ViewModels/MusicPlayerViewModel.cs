@@ -1,29 +1,23 @@
-﻿using Music_Player.Commands;
+﻿using Music_Player.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Text;
-using System.Windows.Input;
-using System.Windows.Media;
 
 namespace Music_Player.ViewModels
 {
+
     class MusicPlayerViewModel : BaseViewModel
     {
-
-        public static MediaPlayer Player = new MediaPlayer();
-
-        private string CurrentSong;
-        
-        public MusicPlayerViewModel()
+        protected static PlayerStateViewModel CurrentState = new PlayerStateViewModel();
+        protected void PlaySong(string name, string path, PlaylistModel currentPlaylist)
         {
-            Debug.WriteLine(" player ");
-            UseThePlayerControlCommand = new UseThePlayerControlCommand();
+            Tuple<PlayerActions, string, string> data = new Tuple<PlayerActions, string, string>(PlayerActions.Play, name, path);
+            UseThePlayerControlCommand.Execute(data);
+
+            CurrentState.CurrentSongPath = path;
+            CurrentState.State = PlayerActions.Play;
+            CurrentState.CurrentPlaylist = currentPlaylist;
         }
-
-
-
 
 
     }

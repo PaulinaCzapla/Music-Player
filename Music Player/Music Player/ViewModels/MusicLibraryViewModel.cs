@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Music_Player.ViewModels
 {
-    class MusicLibraryViewModel : BaseViewModel
+    class MusicLibraryViewModel : MusicPlayerViewModel
     {
 
         private Dictionary<string, PlaylistModel> Playlists;
@@ -40,14 +40,14 @@ namespace Music_Player.ViewModels
 
         public void CreatePlaylist(string[] songsPaths, string playlistName, string coverPath)
         {
-            Dictionary<string, SongModel> songs = new Dictionary<string, SongModel>();
+            List<SongModel> songs = new List<SongModel>();
             foreach (string path in songsPaths)
             {
                 if (!string.IsNullOrEmpty(path))
                 {
                     string[] pathElements = path?.Split('\\');
                     SongModel song = new SongModel(path);
-                    songs.Add(pathElements[pathElements.Length - 1], song);
+                    songs.Add(song);
                 }
             }
             PlaylistModel newPlaylist = new PlaylistModel(playlistName, songs, coverPath);
@@ -70,25 +70,26 @@ namespace Music_Player.ViewModels
 
                     foreach (var song in playlist.Value.Songs)
                     {
-                        if (song.Value != null)
+                        if (song.Path != null)
                         {
                             var subItem = new TreeViewItem();
-                            subItem.Header = song.Key;
+                            subItem.Header = song.Name;
                             item.Items.Add(subItem);
                         }
                     }
                 }
             }
         }
-
         public void PlaySelectedSong(string playlistName, string title)
         {
             if (Playlists.ContainsKey(playlistName))
             {
                 var playlist = Playlists.GetValueOrDefault(playlistName);
-               if( playlist.Songs.ContainsKey(title))
+                SongModel song = playlist.FindSong(title);
+
+               if(song != null)
                 {
-                    PlaySong(title, playlist.Songs.GetValueOrDefault(title).Path);
+                    PlaySong(title, song.Path, playlist);
                 }
             }
         }

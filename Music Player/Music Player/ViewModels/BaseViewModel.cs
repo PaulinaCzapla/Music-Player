@@ -8,6 +8,7 @@ namespace Music_Player.ViewModels
 {
     class BaseViewModel : INotifyPropertyChanged
     {
+        
         public event PropertyChangedEventHandler PropertyChanged;
         protected ICommand UseThePlayerControlCommand { get; set; }
 
@@ -16,10 +17,5 @@ namespace Music_Player.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected void PlaySong(string name, string path)
-        {
-            Tuple<string, string, string> data = new Tuple<string, string, string>("Play", name, path);
-            UseThePlayerControlCommand.Execute(data);
-        }
     }
 }
