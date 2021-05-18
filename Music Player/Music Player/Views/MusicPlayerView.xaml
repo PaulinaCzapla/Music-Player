@@ -48,13 +48,13 @@
                     </Grid>
                     <Grid VerticalAlignment="Bottom" Margin="0,15,0,20">
                         <StackPanel>
-                            <TextBlock x:Name="TextBlockAuthor" Text="author" HorizontalAlignment="Center"  FontSize="17"></TextBlock>
-                            <TextBlock x:Name="TextBlockTitle" Text="title" HorizontalAlignment="Center" FontSize="25" Foreground="#eeeeee"></TextBlock>
+                            <TextBlock x:Name="textBlockAuthor" Text="{Binding Path=Text, ElementName=textBlockAuthor}" HorizontalAlignment="Center"  FontSize="17" ></TextBlock>
+                            <TextBlock x:Name="textBlockTitle" Text="{Binding Path=Text, ElementName=textBlockTitle}"  HorizontalAlignment="Center" FontSize="25" Foreground="#eeeeee"></TextBlock>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
             </Grid>
-            <Grid VerticalAlignment="Top"  Height="100" Margin="0,10,0,25" >
+            <Grid VerticalAlignment="Top"  Height="100" Margin="0,10,0,12" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -135,9 +135,18 @@
                 </Button>
             </Grid>
             <Grid VerticalAlignment="Top" Margin="10" Height="40">
-                <ProgressBar Style="{StaticResource MaterialDesignLinearProgressBar}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="450" Height="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ProgressBar Name="songProgressBar" Grid.Row="0" Style="{StaticResource MaterialDesignLinearProgressBar}" VerticalAlignment="Top" HorizontalAlignment="Center" Width="450" Height="5" 
+                             Maximum="{Binding}" Thumb.DragStarted="songProgressBar_DragStarted"  Thumb.DragCompleted="songProgressBar_DragCompleted" ValueChanged="songProgressBar_ValueChanged" >
 
                 </ProgressBar>
+
+                <TextBlock Name="progressStatus" FontSize="17" Grid.Row="1" VerticalAlignment="Top" Text="{Binding Path=Text, ElementName=progressStatus}" />
+                <TextBlock Name="songLength" FontSize="17" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Text="{Binding Path=Text, ElementName=songLength}" />
             </Grid>
         </StackPanel>
     </Grid>

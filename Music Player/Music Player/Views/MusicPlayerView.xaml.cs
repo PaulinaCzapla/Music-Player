@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Music_Player.Views
 {
@@ -19,18 +20,45 @@ namespace Music_Player.Views
     /// </summary>
     public partial class MusicPlayerView : UserControl
     {
-
-        private static MusicPlayerViewModel PlayerVM = new MusicPlayerViewModel();
+        private bool IsPlaying;
+        private DispatcherTimer playTimer;
+        private static PlayerControlsViewModel PlayerVM = new PlayerControlsViewModel();
         public MusicPlayerView()
         {
             InitializeComponent();
             DataContext = PlayerVM;
+            songProgressBar.Maximum = 1;
+            progressStatus.Text = "00:00:00";
+            songLength.Text = "00:00:00";
+
+            
+
+            playTimer = new DispatcherTimer();
+            playTimer.Interval = TimeSpan.FromMilliseconds(1000); 
+            playTimer.Tick += new EventHandler(playTimer_Tick);
+            playTimer.Start();
         }
 
-
+        public void playTimer_Tick(object sender, EventArgs e)
+        {
+            //if (BackgroundAudioPlayer.Instance.PlayerState == PlayState.Playing)
+            //{
+            //    progressBar.Value = BackgroundAudioPlayer.Instance.Position.TotalSeconds;
+            //    try
+            //    {
+            //        CurrentTime.Text = String.Format(@"{0:hh\:mm\:ss}",
+            //        BackgroundAudioPlayer.Instance.Position).Remove(8);
+            //    }
+            //    catch
+            //    {
+            //        CurrentTime.Text = String.Format(@"{0:hh\:mm\:ss}",
+            //        BackgroundAudioPlayer.Instance.Position);
+            //    }
+            //}
+        }
         private void ButtonPlayPause_Click(object sender, RoutedEventArgs e)
         {
-
+            PlayerVM.PlayPause();
         }
 
         private void ButtonPreviousSong_Click(object sender, RoutedEventArgs e)
@@ -53,5 +81,19 @@ namespace Music_Player.Views
 
         }
 
+        private void songProgressBar_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+
+        }
+
+        private void songProgressBar_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
+        {
+
+        }
+
+        private void songProgressBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 }

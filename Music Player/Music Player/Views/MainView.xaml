@@ -26,7 +26,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <Button x:Name="ButtonLibrary" Click="ButtonLibrary_Click" Command="{Binding UpdateViewCommand}" CommandParameter="MusicLibrary" HorizontalAlignment="Left" Height="40" Width="40" Margin="10" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
+            <Button x:Name="ButtonLibrary" Command="{Binding UpdateViewCommand}" CommandParameter="MusicLibrary" HorizontalAlignment="Left" Height="40" Width="40" Margin="10" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
                     BorderBrush="{x:Null}" >
                 <materialDesign:PackIcon Kind="ReorderHorizontal" Height="40" Width="40" >
                     <materialDesign:PackIcon.Foreground>
@@ -39,7 +39,7 @@
                     </materialDesign:PackIcon.Foreground>
                 </materialDesign:PackIcon>
             </Button>
-            <Button x:Name="ButtonMusicPlayer" Click="ButtonMusicPlayer_Click" Command="{Binding UpdateViewCommand}" CommandParameter="MusicPlayer" HorizontalAlignment="Right" Height="40" Width="40" Margin="0,0,30,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
+            <Button x:Name="ButtonMusicPlayer" Command="{Binding UpdateViewCommand}" CommandParameter="MusicPlayer" HorizontalAlignment="Right" Height="40" Width="40" Margin="0,0,30,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Background="{x:Null}"
                     BorderBrush="{x:Null}" >
                 <materialDesign:PackIcon Kind="Music" Height="40" Width="40" >
                     <materialDesign:PackIcon.Foreground>
