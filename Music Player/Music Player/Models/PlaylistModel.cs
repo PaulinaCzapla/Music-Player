@@ -7,8 +7,8 @@ namespace Music_Player.Models
     class PlaylistModel
     {
         public string PlaylistName;
-        private Dictionary<string, SongModel> _Songs;
-        public Dictionary<string, SongModel> Songs
+        private List< SongModel> _Songs;
+        public List< SongModel> Songs
         {
             get { return _Songs; }
             private set
@@ -28,11 +28,24 @@ namespace Music_Player.Models
         }
 
 
-        public PlaylistModel(string playlistName, Dictionary<string, SongModel> songs, string coverPath)
+        public PlaylistModel(string playlistName, List<SongModel> songs, string coverPath)
         {
             PlaylistName = playlistName;
             Songs = songs;
             Cover = new CoverModel(coverPath);
+        }
+
+        public SongModel FindSong(string name)
+        {
+            SongModel result = new SongModel();
+            foreach(SongModel song in Songs)
+            {
+                if(song.Name == name)
+                {
+                    result = song;
+                }
+            }
+            return result;
         }
 
 
