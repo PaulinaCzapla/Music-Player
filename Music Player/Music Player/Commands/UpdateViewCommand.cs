@@ -15,9 +15,9 @@ namespace Music_Player.Commands
 
         private MainViewModel MainViewModel;
         private MusicLibraryViewModel MusicLibraryViewModel;
-        private MusicPlayerViewModel MusicPlayerViewModel;
+        private PlayerControlsViewModel MusicPlayerViewModel;
 
-        public UpdateViewCommand(MainViewModel viewModel, MusicPlayerViewModel musicPlayerViewModel, MusicLibraryViewModel musicLibraryViewModel)
+        public UpdateViewCommand(MainViewModel viewModel, PlayerControlsViewModel musicPlayerViewModel, MusicLibraryViewModel musicLibraryViewModel)
         {
             MainViewModel = viewModel;
             MusicLibraryViewModel = musicLibraryViewModel;

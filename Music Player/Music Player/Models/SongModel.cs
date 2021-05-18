@@ -6,24 +6,31 @@ namespace Music_Player.Models
 {
     class SongModel
     {
+
+        public string Name { get; }
+
+        public string Path { get; }
+
         public SongModel(string path)
         {
             Path = path;
+            var pathInfo = path.Split("\\");
+            Name = pathInfo[pathInfo.Length - 1];
         }
 
-        private string _Path;
-
-        public string Path
+        public SongModel(SongModel otherSongModel)
         {
-            get
+            if (otherSongModel != null)
             {
-                return _Path;
-            }
-            private set
-            {
-                _Path = value;
+                Path = otherSongModel.Path;
+                Name = otherSongModel.Name;
             }
         }
 
+        public SongModel()
+        {
+            Path = null;
+            Name = null;
+        }
     }
 }
