@@ -26,40 +26,40 @@ namespace Music_Player.Commands
 
         public void Execute(object parameter)
         {
-            var param = (Tuple<string, string, string>)parameter;
+            var param = (Tuple<PlayerActions, string, string>)parameter;
             switch (param.Item1)
             {
-                case "Play":
+                case PlayerActions.Play:
 
                     PlayerControl = new PlayViewModel( param.Item3);
 
                     break;
 
-                case "Pause":
+                case PlayerActions.Pause:
 
                     PlayerControl = new PauseViewModel();
 
                     break;
 
-                case "Previous":
+                case PlayerActions.PlayPrevious:
 
                     PlayerControl = new PreviousViewModel();
 
                     break;
 
-                case "Next":
+                case PlayerActions.PlayNext:
 
                     PlayerControl = new NextViewModel();
 
                     break;
 
-                case "Shuffle":
+                case PlayerActions.Shuffle:
 
                     PlayerControl = new ShuffleViewModel();
 
                     break;
 
-                case "Loop":
+                case PlayerActions.Loop:
 
                     PlayerControl = new LoopViewModel();
 
