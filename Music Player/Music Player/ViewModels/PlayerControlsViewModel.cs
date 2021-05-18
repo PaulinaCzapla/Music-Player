@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Music_Player.ViewModels
 {
@@ -14,11 +15,11 @@ namespace Music_Player.ViewModels
     {
 
         public static MediaPlayer Player = new MediaPlayer();
-        
+
         public PlayerControlsViewModel()
         {
             UseThePlayerControlCommand = new UseThePlayerControlCommand();
-            
+
         }
 
         private void Pause()
@@ -42,7 +43,20 @@ namespace Music_Player.ViewModels
             }
         }
 
+        public BitmapImage DisplayCover()
+        {
+            Uri resourceUri;
+            resourceUri = new Uri(@"C:\Users\pauli\Documents\GitHub\Music-Player\Music Player\Music Player\cover.png", UriKind.Relative);
 
+            if (CurrentState.State != PlayerActions.NotPlaying)
+            {
+                if (CurrentState.CurrentPlaylist.Cover != null)
+                {
+                    resourceUri = new Uri(CurrentState.CurrentPlaylist.Cover.Path, UriKind.Relative);
+                }
+            }
+            return new BitmapImage(resourceUri);
+        }
 
 
     }

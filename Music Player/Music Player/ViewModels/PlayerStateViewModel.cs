@@ -16,6 +16,14 @@ namespace Music_Player.ViewModels
         public event EventHandler PlayerTimerTicked;
         public event EventHandler<string> NewSongPlayed;
         public event EventHandler<string> StateChanged;
+
+        public PlayerStateViewModel()
+        {
+            CurrentPlaylist = null;
+            State = PlayerActions.NotPlaying;
+            CurrentSongPath = null;
+            PlayTimer = null;
+        }
         public void PlayTimer_Tick(object sender, EventArgs e)
         {
             //progress bar and timer

@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace Music_Player.ViewModels
 {
@@ -93,6 +94,7 @@ namespace Music_Player.ViewModels
                 }
             }
         }
+
     }
 }
 

@@ -32,7 +32,14 @@ namespace Music_Player.Models
         {
             PlaylistName = playlistName;
             Songs = songs;
-            Cover = new CoverModel(coverPath);
+            if (!String.IsNullOrEmpty(coverPath))
+            {
+                Cover = new CoverModel(coverPath);
+            } 
+            else
+            {
+                Cover = null;
+            }
         }
 
         public SongModel FindSong(string name)
