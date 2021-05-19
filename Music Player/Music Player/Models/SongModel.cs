@@ -14,8 +14,9 @@ namespace Music_Player.Models
         public SongModel(string path)
         {
             Path = path;
-            var pathInfo = path.Split("\\");
-            Name = pathInfo[pathInfo.Length - 1];
+            var pathInfo = path.Split(@"\");
+            var songInfo = pathInfo[pathInfo.Length - 1].Split(".");
+            Name = songInfo[0];
         }
 
         public SongModel(SongModel otherSongModel)

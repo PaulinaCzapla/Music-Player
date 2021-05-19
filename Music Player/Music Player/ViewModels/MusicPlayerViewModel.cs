@@ -46,7 +46,8 @@ namespace Music_Player.ViewModels
             if (CurrentState.CurrentSongPath!= null)
             {
                 var pathInfo = CurrentState.CurrentSongPath.Split(@"\");
-                result = pathInfo[pathInfo.Length - 1];
+                var songInfo = pathInfo[pathInfo.Length - 1].Split(".");
+                result = songInfo[0];
             }
 
             return result;
