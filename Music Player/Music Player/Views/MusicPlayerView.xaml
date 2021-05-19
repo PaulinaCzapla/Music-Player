@@ -24,10 +24,11 @@
                             <Ellipse.Stroke>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <GradientStop Color="#1c1c1c" Offset="0.78"/>
-                                    <GradientStop Color="#f7b538"/>
-                                    <GradientStop Color="#db7c26" Offset="0.30"/>
-                                    <GradientStop Color="#d8572a" Offset="0.6"/>
-                                    <GradientStop Color="#c32f27" Offset="0.64"/>
+                       
+                                    <GradientStop Color="#f8911c"/>
+                                    <GradientStop Color="#f36826" Offset="0.30"/>
+                                    <GradientStop Color="#ef4a3e" Offset="0.6"/>
+                                    <GradientStop Color="#f03350" Offset="0.64"/>
                                 </LinearGradientBrush>
                             </Ellipse.Stroke>
                         </Ellipse>
@@ -42,13 +43,13 @@
                         </Ellipse>
                         <Ellipse Width="260" Height="260"  StrokeThickness="3">
                             <Ellipse.Fill>
-                                <ImageBrush x:Name="imgDynamic"/>
+                                <ImageBrush x:Name="cover"/>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Grid>
                     <Grid VerticalAlignment="Bottom" Margin="0,15,0,20">
                         <StackPanel>
-                            <TextBlock x:Name="textBlockAuthor" Text="{Binding Path=Text, ElementName=textBlockAuthor}" HorizontalAlignment="Center"  FontSize="17" ></TextBlock>
+                            <TextBlock x:Name="textBlockPlaylist" Text="{Binding Path=Text, ElementName=textBlockPlaylist}" HorizontalAlignment="Center"  FontSize="15" ></TextBlock>
                             <TextBlock x:Name="textBlockTitle" Text="{Binding Path=Text, ElementName=textBlockTitle}"  HorizontalAlignment="Center" FontSize="25" Foreground="#eeeeee"></TextBlock>
                         </StackPanel>
                     </Grid>
@@ -70,10 +71,10 @@
                     <materialDesign:PackIcon Kind="SkipPrevious" Height="48" Width="48">
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#f7b538"/>
-                                <GradientStop Color="#db7c26" Offset="0.50"/>
-                                <GradientStop Color="#d8572a" Offset="0.80"/>
-                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                                <GradientStop Color="#f8911c"/>
+                                <GradientStop Color="#f36826" Offset="0.50"/>
+                                <GradientStop Color="#ef4a3e" Offset="0.80"/>
+                                <GradientStop Color="#f03350" Offset="0.90"/>
                             </LinearGradientBrush>
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
@@ -83,10 +84,10 @@
                     <materialDesign:PackIcon Kind="SkipNext" Height="48" Width="48">
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#f7b538"/>
-                                <GradientStop Color="#db7c26" Offset="0.50"/>
-                                <GradientStop Color="#d8572a" Offset="0.80"/>
-                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                                <GradientStop Color="#f8911c"/>
+                                <GradientStop Color="#f36826" Offset="0.50"/>
+                                <GradientStop Color="#ef4a3e" Offset="0.80"/>
+                                <GradientStop Color="#f03350" Offset="0.90"/>
                             </LinearGradientBrush>
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
@@ -99,10 +100,10 @@
                     <materialDesign:PackIcon Kind="Pause" Height="70" Width="70" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#f7b538"/>
-                                <GradientStop Color="#db7c26" Offset="0.50"/>
-                                <GradientStop Color="#d8572a" Offset="0.80"/>
-                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                                <GradientStop Color="#f8911c"/>
+                                <GradientStop Color="#f36826" Offset="0.50"/>
+                                <GradientStop Color="#ef4a3e" Offset="0.80"/>
+                                <GradientStop Color="#f03350" Offset="0.90"/>
                             </LinearGradientBrush>
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
@@ -112,10 +113,10 @@
                     <materialDesign:PackIcon Kind="ShuffleVariant" Height="30" Width="30">
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#f7b538"/>
-                                <GradientStop Color="#db7c26" Offset="0.50"/>
-                                <GradientStop Color="#d8572a" Offset="0.80"/>
-                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                                <GradientStop Color="#f8911c"/>
+                                <GradientStop Color="#f36826" Offset="0.50"/>
+                                <GradientStop Color="#ef4a3e" Offset="0.80"/>
+                                <GradientStop Color="#f03350" Offset="0.90"/>
                             </LinearGradientBrush>
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
@@ -125,10 +126,10 @@
                     <materialDesign:PackIcon Kind="Repeat" Height="30" Width="30">
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#f7b538"/>
-                                <GradientStop Color="#db7c26" Offset="0.50"/>
-                                <GradientStop Color="#d8572a" Offset="0.80"/>
-                                <GradientStop Color="#c32f27" Offset="0.90"/>
+                                <GradientStop Color="#f8911c"/>
+                                <GradientStop Color="#f36826" Offset="0.50"/>
+                                <GradientStop Color="#ef4a3e" Offset="0.80"/>
+                                <GradientStop Color="#f03350" Offset="0.90"/>
                             </LinearGradientBrush>
                         </materialDesign:PackIcon.Foreground>
                     </materialDesign:PackIcon>
