@@ -20,45 +20,29 @@ namespace Music_Player.Views
     /// </summary>
     public partial class MusicPlayerView : UserControl
     {
-        private bool IsPlaying;
-        private DispatcherTimer playTimer;
-        private static PlayerControlsViewModel PlayerVM = new PlayerControlsViewModel();
+        private PlayerControlsViewModel PlayerControlVM;
         public MusicPlayerView()
         {
+            PlayerControlVM = new PlayerControlsViewModel();
+
             InitializeComponent();
-            DataContext = PlayerVM;
+            DataContext = PlayerControlVM;
             songProgressBar.Maximum = 1;
             progressStatus.Text = "00:00:00";
             songLength.Text = "00:00:00";
 
-            
+           
+            cover.ImageSource = PlayerControlVM.DisplayCover();
 
-            playTimer = new DispatcherTimer();
-            playTimer.Interval = TimeSpan.FromMilliseconds(1000); 
-            playTimer.Tick += new EventHandler(playTimer_Tick);
-            playTimer.Start();
-        }
+   
+                textBlockPlaylist.Text = PlayerControlVM.GetCurrentPlaylistName();
 
-        public void playTimer_Tick(object sender, EventArgs e)
-        {
-            //if (BackgroundAudioPlayer.Instance.PlayerState == PlayState.Playing)
-            //{
-            //    progressBar.Value = BackgroundAudioPlayer.Instance.Position.TotalSeconds;
-            //    try
-            //    {
-            //        CurrentTime.Text = String.Format(@"{0:hh\:mm\:ss}",
-            //        BackgroundAudioPlayer.Instance.Position).Remove(8);
-            //    }
-            //    catch
-            //    {
-            //        CurrentTime.Text = String.Format(@"{0:hh\:mm\:ss}",
-            //        BackgroundAudioPlayer.Instance.Position);
-            //    }
-            //}
+            textBlockTitle.Text = PlayerControlVM.GetCurrentSongName();
+
         }
         private void ButtonPlayPause_Click(object sender, RoutedEventArgs e)
         {
-            PlayerVM.PlayPause();
+            PlayerControlVM.PlayPause();
         }
 
         private void ButtonPreviousSong_Click(object sender, RoutedEventArgs e)
