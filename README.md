@@ -1,4 +1,6 @@
 # Music Player - *still in progress*
 
-![image](https://user-images.githubusercontent.com/56382779/115579257-46cd0e00-a2c6-11eb-8611-12f1b602b8c7.png)
+
+![image](https://user-images.githubusercontent.com/56382779/119024450-5ca42080-b9a3-11eb-906f-c1ed12918426.png)
+
 
