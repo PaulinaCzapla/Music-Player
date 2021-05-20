@@ -38,8 +38,21 @@ namespace Music_Player.ViewModels
             else
                 if (CurrentState.State == PlayerActions.Pause)
             {
-                var pathInfo = CurrentState.CurrentSongPath.Split("//");
-                PlaySong(pathInfo[pathInfo.Length - 1], CurrentState.CurrentSongPath, CurrentState.CurrentPlaylist);
+                var pathInfo = CurrentState.CurrentSongPath.Split(@"\");
+                var songInfo = pathInfo[pathInfo.Length - 1].Split(".");
+                PlaySong(songInfo[0], CurrentState.CurrentSongPath, CurrentState.CurrentPlaylist);
+            }
+
+        }
+
+        public void PlayNext()
+        {
+            var pathInfo = CurrentState.CurrentSongPath.Split(@"\");
+            var songInfo = pathInfo[pathInfo.Length - 1].Split(".");
+            var song = CurrentState.CurrentPlaylist.FindNextSong(songInfo[0]);
+            if (song != null)
+            {
+                PlaySong(songInfo[0], song.Path, CurrentState.CurrentPlaylist);
             }
         }
 
@@ -58,6 +71,19 @@ namespace Music_Player.ViewModels
             return new BitmapImage(resourceUri);
         }
 
+        public TimeSpan GetCurrentSongDuration ()
+        {
+            TimeSpan result;
+            if (Player.NaturalDuration.HasTimeSpan)
+            {
+                result = Player.NaturalDuration.TimeSpan;
+            }
+            else
+            {
+                result = TimeSpan.Zero;
+            }
 
+            return result;
+        }
     }
 }
