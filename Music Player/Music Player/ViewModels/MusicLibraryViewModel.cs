@@ -19,7 +19,31 @@ namespace Music_Player.ViewModels
 
         private void AddToPlaylists(string playlistName, PlaylistModel playlist)
         {
-            Playlists.Add(playlistName, playlist);
+            bool isUnique = false;
+            int i = 1;
+
+            playlistName.Trim();
+
+            do
+            {
+                if (Playlists.ContainsKey(playlistName))
+                {
+                    isUnique = false;
+                    if(i!=1)
+                    {
+                        playlistName = playlistName.Remove(playlistName.Length - i/10 - 3);
+                    }
+                    playlistName += "(" + i + ")";
+                    i++;
+                }
+                else
+                {
+                    isUnique = true;
+                }
+
+            } while (isUnique == false);
+
+          Playlists.Add(playlistName, playlist);
         }
         public MusicLibraryViewModel()
         {
@@ -88,7 +112,7 @@ namespace Music_Player.ViewModels
                 var playlist = Playlists.GetValueOrDefault(playlistName);
                 SongModel song = playlist.FindSong(title);
 
-               if(song != null)
+                if (song != null)
                 {
                     PlaySong(title, song.Path, playlist);
                 }

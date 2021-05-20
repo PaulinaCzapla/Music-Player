@@ -28,8 +28,8 @@
                         <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
                             <RadialGradientBrush.GradientStops>
                  
-                                <GradientStop Color="#f8911c"  Offset="0.30"/>
-                                <GradientStop Color="#f36826" Offset="0.35"/>
+                                <GradientStop Color="#f8911c"  Offset="0.40"/>
+                                <GradientStop Color="#f36826" Offset="0.59"/>
                                 <GradientStop Color="#ef4a3e" Offset="0.67"/>
                                 <GradientStop Color="#f03350" Offset="0.99"/>
                             </RadialGradientBrush.GradientStops>

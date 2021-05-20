@@ -14,7 +14,6 @@ namespace Music_Player.ViewModels
 
         static MusicPlayerViewModel()
         {
-            Debug.WriteLine("static constructor");
             CurrentState = new PlayerStateViewModel();
         }
 
