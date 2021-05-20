@@ -15,8 +15,6 @@ namespace Music_Player.ViewModels
 
         private Dictionary<string, PlaylistModel> Playlists;
 
-
-
         private void AddToPlaylists(string playlistName, PlaylistModel playlist)
         {
             bool isUnique = false;
@@ -114,7 +112,7 @@ namespace Music_Player.ViewModels
 
                 if (song != null)
                 {
-                    PlaySong(title, song.Path, playlist);
+                    PlaySong(song, playlist);
                 }
             }
         }

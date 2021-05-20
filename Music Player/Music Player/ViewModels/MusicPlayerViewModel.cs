@@ -17,14 +17,9 @@ namespace Music_Player.ViewModels
             CurrentState = new PlayerStateViewModel();
         }
 
-        protected void PlaySong(string name, string path, PlaylistModel currentPlaylist)
+        protected void PlaySong(SongModel song, PlaylistModel currentPlaylist)
         {
-            Tuple<PlayerActions, string, string> data = new Tuple<PlayerActions, string, string>(PlayerActions.Play, name, path);
-            UseThePlayerControlCommand.Execute(data);
-
-            CurrentState.CurrentSongPath = path;
-            CurrentState.State = PlayerActions.Play;
-            CurrentState.CurrentPlaylist = currentPlaylist;
+            UseThePlayerControlCommand.Execute(new Tuple<PlayerActions, SongModel, PlaylistModel>(PlayerActions.Play, song, currentPlaylist));
         }
 
         public string GetCurrentPlaylistName()
@@ -42,11 +37,9 @@ namespace Music_Player.ViewModels
         public string GetCurrentSongName()
         {
             string result = null;
-            if (CurrentState.CurrentSongPath!= null)
+            if (CurrentState.CurrentSong!= null)
             {
-                var pathInfo = CurrentState.CurrentSongPath.Split(@"\");
-                var songInfo = pathInfo[pathInfo.Length - 1].Split(".");
-                result = songInfo[0];
+                result = CurrentState.CurrentSong.Name;
             }
 
             return result;

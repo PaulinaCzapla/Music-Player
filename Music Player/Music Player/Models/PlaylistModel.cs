@@ -56,25 +56,34 @@ namespace Music_Player.Models
             return result;
         }
 
-        public SongModel FindNextSong(string name)
+        public SongModel FindNextSong(SongModel song)
         {
-            SongModel song = FindSong(name);
-            if (song != null)
+            SongModel result = null;
+
+            if (Songs.Contains(song))
             {
-                int index = Songs.IndexOf(FindSong(name));
+                int index = Songs.IndexOf(song);
                 if (index + 1 < Songs.Count)
                 {
-                    song = Songs[index + 1];
-                }
-                else
-                {
-                    song = null;
+                    result = Songs[index + 1];
                 }
             }
-            return song;
-
+            return result;
         }
 
+        public SongModel FindPrevSong(SongModel song)
+        {
+            SongModel result = null;
 
+            if (Songs.Contains(song))
+            {
+                int index = Songs.IndexOf(song);
+                if (index - 1 >=0)
+                {
+                    result = Songs[index - 1];
+                }
+            }
+            return result;
+        }
     }
 }

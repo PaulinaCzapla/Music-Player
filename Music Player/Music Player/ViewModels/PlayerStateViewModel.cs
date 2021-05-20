@@ -11,7 +11,9 @@ namespace Music_Player.ViewModels
     class PlayerStateViewModel
     {
         public TimeSpan Position { get; set; }
+
         public PlaylistModel CurrentPlaylist;
+        public TimeSpan Duration { get; set; }
 
         public event EventHandler <string> PlayerTimerTicked;
         private event EventHandler<string> NewSongPlayed;
@@ -28,21 +30,22 @@ namespace Music_Player.ViewModels
             }
         }
 
-        private string _CurrentSongPath;
-        public string CurrentSongPath
+        private SongModel _CurrentSong;
+        public SongModel CurrentSong
         {
-            get { return _CurrentSongPath; }
+            get { return _CurrentSong; }
             set
             {
                 Debug.WriteLine("new song");
-                if (value != _CurrentSongPath)
+                if (value != _CurrentSong || State == PlayerActions.PlayPrevious)
                 {
-                    NewSongPlayed?.Invoke(this, value);
+                    NewSongPlayed?.Invoke(this, value.Path);
                 }
-                _CurrentSongPath = value;
+                _CurrentSong = value;
             }
         }
 
+        
         private Timer PlayTimer { get; set; }
 
 
@@ -51,7 +54,7 @@ namespace Music_Player.ViewModels
         {
             CurrentPlaylist = null;
             State = PlayerActions.NotPlaying;
-            CurrentSongPath = null;
+            CurrentSong = null;
             PlayTimer = null;
             Position = TimeSpan.Zero;
             NewSongPlayed += NewSong_Play;
@@ -63,12 +66,13 @@ namespace Music_Player.ViewModels
             PlayTimer = new System.Timers.Timer(1000);
             PlayTimer.Elapsed += OnElapsed;
             OnElapsed(null, null);
-            PlayTimer.Start();
+            //PlayTimer.Start();
+            State = PlayerActions.Play;
 
         }
         private void OnElapsed(Object sender, System.Timers.ElapsedEventArgs e)
         {
-            System.Windows.Application.Current.Dispatcher.Invoke((Action)delegate ()
+            System.Windows.Application.Current?.Dispatcher.Invoke((Action)delegate ()
             {
                 Position = PlayerControlsViewModel.Player.Position;
                 PlayerTimerTicked.Invoke(sender, Position.ToString(@"hh\:mm\:ss"));
@@ -95,7 +99,7 @@ namespace Music_Player.ViewModels
         {
             CurrentPlaylist = null;
             State = PlayerActions.NotPlaying;
-            CurrentSongPath = null;
+            CurrentSong = null;
             PlayTimer = null;
             Position = TimeSpan.Zero;
         }

@@ -22,39 +22,38 @@ namespace Music_Player.ViewModels
 
         }
 
-        private void Pause()
-        {
-            Tuple<PlayerActions, string, string> data = new Tuple<PlayerActions, string, string>(PlayerActions.Pause, null, null);
-            UseThePlayerControlCommand.Execute(data);
 
-            CurrentState.State = PlayerActions.Pause;
-        }
         public void PlayPause()
         {
             if (CurrentState.State == PlayerActions.Play)
             {
-                Pause();
+                UseThePlayerControlCommand.Execute(new Tuple<PlayerActions, SongModel, PlaylistModel>(PlayerActions.Pause, null, null));
             }
             else
                 if (CurrentState.State == PlayerActions.Pause)
             {
-                var pathInfo = CurrentState.CurrentSongPath.Split(@"\");
-                var songInfo = pathInfo[pathInfo.Length - 1].Split(".");
-                PlaySong(songInfo[0], CurrentState.CurrentSongPath, CurrentState.CurrentPlaylist);
+                PlaySong(CurrentState.CurrentSong, CurrentState.CurrentPlaylist);
             }
 
         }
 
         public void PlayNext()
         {
-            var pathInfo = CurrentState.CurrentSongPath.Split(@"\");
-            var songInfo = pathInfo[pathInfo.Length - 1].Split(".");
-            var song = CurrentState.CurrentPlaylist.FindNextSong(songInfo[0]);
-            if (song != null)
-            {
-                PlaySong(songInfo[0], song.Path, CurrentState.CurrentPlaylist);
-            }
+            //var song = CurrentState.CurrentPlaylist?.FindNextSong(CurrentState.CurrentSong);
+            //if (song != null)
+            //{
+            //    PlaySong(song, CurrentState.CurrentPlaylist);
+            //}
+
+            UseThePlayerControlCommand.Execute(new Tuple<PlayerActions, SongModel, PlaylistModel>(PlayerActions.PlayNext, CurrentState.CurrentSong, CurrentState.CurrentPlaylist));
+
         }
+
+        public void PlayPrev()
+        {
+                UseThePlayerControlCommand.Execute(new Tuple<PlayerActions, SongModel, PlaylistModel>(PlayerActions.PlayPrevious, CurrentState.CurrentSong, CurrentState.CurrentPlaylist));
+        }
+
 
         public BitmapImage DisplayCover()
         {
@@ -73,17 +72,7 @@ namespace Music_Player.ViewModels
 
         public TimeSpan GetCurrentSongDuration ()
         {
-            TimeSpan result;
-            if (Player.NaturalDuration.HasTimeSpan)
-            {
-                result = Player.NaturalDuration.TimeSpan;
-            }
-            else
-            {
-                result = TimeSpan.Zero;
-            }
-
-            return result;
+            return CurrentState.Duration;
         }
     }
 }

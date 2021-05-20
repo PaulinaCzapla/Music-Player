@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Music_Player.Models;
 using Music_Player.ViewModels.PlayerControls;
 
 namespace Music_Player.Commands
@@ -26,12 +27,12 @@ namespace Music_Player.Commands
 
         public void Execute(object parameter)
         {
-            var param = (Tuple<PlayerActions, string, string>)parameter;
+            var param = (Tuple<PlayerActions, SongModel, PlaylistModel>)parameter;
             switch (param.Item1)
             {
                 case PlayerActions.Play:
 
-                    PlayerControl = new PlayViewModel( param.Item3);
+                    PlayerControl = new PlayViewModel( new Tuple<SongModel, PlaylistModel> (param.Item2, param.Item3) );
 
                     break;
 
@@ -43,13 +44,13 @@ namespace Music_Player.Commands
 
                 case PlayerActions.PlayPrevious:
 
-                    PlayerControl = new PreviousViewModel();
+                    PlayerControl = new PreviousViewModel(new Tuple<SongModel, PlaylistModel>(param.Item2, param.Item3));
 
                     break;
 
                 case PlayerActions.PlayNext:
 
-                    PlayerControl = new NextViewModel();
+                    PlayerControl = new NextViewModel(new Tuple<SongModel, PlaylistModel>(param.Item2, param.Item3));
 
                     break;
 

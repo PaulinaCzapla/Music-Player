@@ -49,7 +49,8 @@ namespace Music_Player.Views
 
         private void ButtonPreviousSong_Click(object sender, RoutedEventArgs e)
         {
-
+            PlayerControlVM.PlayPrev();
+            UpdateView();
         }
 
         private void ButtonSkip_Click(object sender, RoutedEventArgs e)
